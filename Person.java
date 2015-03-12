@@ -6,14 +6,14 @@ class Person{
     private String fodselsnummer;
     private String postnummer; 
     private String adresse;
-    private int id;
+    private static int id;
     
-    public Person(String navn, String fodselsnr, String postnummer, String adresse, int id){
+    public Person(String navn, String fodselsnr, String postnummer, String adresse){
         this.navn = navn; 
         fodselsnummer = fodselsnr; 
         this.postnummer = postnummer; 
         this.adresse = adresse;
-        this.id = id; 
+        id ++; 
     }
 
     public String getNavn(){

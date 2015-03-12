@@ -6,11 +6,4 @@ public interface AbstraktSortertEnkelListe<T extends Comparable<T> & Lik>{
     public boolean settInn(T t);
     public T finnObjekt(String nokkel);
 
-    // metoden fra grensesnittet comparable
-    public int compareTo(T o);
-
-    // metoden fra grensesnittet Lik
-    public boolean samme(String navn);
-
-
 }
