@@ -1,0 +1,4 @@
+class EldsteForstReseptliste extends EnkelReseptliste{
+    
+    
+}
