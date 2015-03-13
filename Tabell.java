@@ -16,7 +16,7 @@ public class Tabell<T> implements AbstraktTabell<T>, Iterable<T>{
 
     public boolean settInn(T objekt, int indeks){
         // setter inn et objekt i arrayet
-        if(indeks>0 && indeks<lengde){
+        if(indeks>=0 && indeks<lengde){
             if(beholder[indeks] == null){
                 // denne plassen er ledig, sett inn objektet her 
                 beholder[indeks] = objekt;
