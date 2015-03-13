@@ -20,7 +20,7 @@ class Lege implements  Lik{
 
     public boolean samme(String navn){
         // sammenlikner legens navn med navnet som kommer inn som parameter
-        return(this.navn==navn);
+        return(this.navn.equals(navn));
     }
     
     public int compareTo(Lege x){
