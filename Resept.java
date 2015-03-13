@@ -8,6 +8,7 @@ class Resept{
     private Lege hvilkenLege;
     private int pasientid;
     private int reit; 
+    private boolean gyldig = true;
     
 
     public Resept(Legemiddel hvilket, Lege hvilken, int pasientid, int reit){
@@ -36,6 +37,14 @@ class Resept{
 
     public int reit(){
         return reit;
+    }
+    
+    public void brukResept(){
+        reit --;
+        
+        if(reit == 0){
+            gyldig = false; 
+        }
     }
 
 }
