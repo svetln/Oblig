@@ -1,4 +1,4 @@
-class Lege implements Comparable, Lik, Iterable{
+abstract class Lege implements Comparable, Lik, Iterable{
 
     // En lege er en person, og extender derfor Person. 
     // Lege implementerer interfacet Lik som sjekker om et legenavn som 
