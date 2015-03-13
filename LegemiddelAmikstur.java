@@ -5,11 +5,12 @@ class LegemiddelAmikstur extends LegemiddelA implements Mikstur{
     // per kubikkcm. 
 
     private double volum;
-    private double virkestoff = getVirkestoff();
+    private double virkestoff;
     private double virkestoffKubikkcm = virkestoff/volum;
     
     public LegemiddelAmikstur(String navn, int pris, double virk, int nark, double volum){
         super(navn, pris,virk, nark);
+        virkestoff = virk;
         this.volum = volum;
     }
  
