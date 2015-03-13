@@ -6,8 +6,8 @@ class LegemiddelBmikstur extends LegemiddelB implements Mikstur{
     private double virkestoff = getVirkestoff();
     private double virkestoffKubikkcm = virkestoff/volum;
     
-    public LegemiddelBmikstur(String navn, int pris, int id, double virk, int van, double volum){
-        super(navn, pris, id, virk, van);
+    public LegemiddelBmikstur(String navn, int pris, double virk, int van, double volum){
+        super(navn, pris, virk, van);
         this.volum = volum;
     }
  
