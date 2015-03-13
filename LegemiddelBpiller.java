@@ -7,8 +7,8 @@ class LegemiddelBpiller extends LegemiddelB implements Piller{
     private double mengdeVirkestoff = getVirkestoff();
     private double virkestoffPerPille = mengdeVirkestoff/antPiller;
 
-    public LegemiddelBpiller(String n, int p, int i, double virk, int van, int ant){
-        super(n, p, i, virk, van);
+    public LegemiddelBpiller(String navn, int pris, double virk, int van, int ant){
+        super(navn, pris, virk, van);
         antPiller = ant;
     }
 
