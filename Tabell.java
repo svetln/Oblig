@@ -31,7 +31,7 @@ public class Tabell<T extends Iterable> implements AbstraktTabell<T>{
 
     }
     
-    public int getLenge(){
+    public int getLengde(){
         return lengde;
     }
     
