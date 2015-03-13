@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class SortertEnkelListe implements AbstraktSortertEnkelListe<T extends Comparable<T> & Lik & Iterable<T>>{
+public class SortertEnkelListe<T extends Comparable<T> & Lik> implements AbstraktSortertEnkelListe<T>{
 
     // Er en enveisliste
     private Node forste;
