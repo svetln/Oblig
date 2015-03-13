@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class SortertEnkelListe<T> implements AbstraktSortertEnkelListe<T extends Lik & Comparable<T>>, Iterable<T>{
+public class SortertEnkelListe<T extends Lik & Comparable<T>> implements AbstraktSortertEnkelListe<T>, Iterable<T>{
 
     // Er en enveisliste
     private Node forste;
@@ -35,7 +35,7 @@ public class SortertEnkelListe<T> implements AbstraktSortertEnkelListe<T extends
     // returnerer false om objektet finnes i lista fra før eller man prøver å 
     // sette inn på en ugyldig plass
     
-        if(tom()){
+        /*if(tom()){
         // hvis lista er tom, sett inn nytt objekt først. 
             forste = new Node(t);
             siste = forste;
@@ -116,7 +116,7 @@ public class SortertEnkelListe<T> implements AbstraktSortertEnkelListe<T extends
                 // hvis ingen av disse slår inn, returner false:
                 return false;
 
-        }
+        }*/
         return false;
     }
 
