@@ -27,6 +27,10 @@ public class EnkelReseptliste implements Iterable<Resept>{
             return resept;
         }
     }
+    
+    public int getAntall(){
+        return antall;
+    }
 
     // Metoden fra grensesnittet Iterable.
     // Skal returnerer en iterator over lenkelisten vår. 
