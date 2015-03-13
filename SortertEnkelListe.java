@@ -35,89 +35,69 @@ public class SortertEnkelListe<T extends Lik & Comparable<T>> implements Abstrak
     // returnerer false om objektet finnes i lista fra før eller man prøver å 
     // sette inn på en ugyldig plass
     
-        /*if(tom()){
+        if(tom()){
         // hvis lista er tom, sett inn nytt objekt først. 
             forste = new Node(t);
             siste = forste;
             return true;
         }
-        Iterator<T> objekter = iterator();
-
-        while(objekter.hasNext()){
-          
-            T objekt = objekter.next();
-
-            if(objekt.compareTo(t) == 0){
-                // objektene er de samme, ikke sett inn på nytt
-                return false; 
-            }
-            else if(objekt.compareTo(t) == 1){
-               // 1 betyr at parameterlegen er før denne legen i alfabetet
-               // settes inn foran denne legen 
-              
+        else if(getAntall()==1){
+            if(forste.hentUt().compareTo(t) == 1){
+                // parameteret er før første node i lista, sett inn dette først 
                 Node nyNode = new Node(t);
-                
-                if(objekt == forste.hentUt()){
                     nyNode.neste = forste;
                     forste = nyNode;
                     return true;
+            }
+            Node nyNode = new Node(t);
+            siste.neste = nyNode;
+            siste = nyNode; 
+            return true;
+        }
+        // hvis lista inneholder mer enn ett element. 
+        Node sjekk = forste; 
+        if(sjekk.hentUt().compareTo(t) == 0){
+            // objektene er de samme, ikke sett inn på nytt
+            return false; 
+        }
+        else if(sjekk.hentUt().compareTo(t) == 1){
+            // 1 betyr at parameterlegen er før denne legen i alfabetet
+            // settes inn foran denne legen 
+            if(objekt == forste.hentUt()){
+                Node nyNode = new Node(t);
+                nyNode.neste = forste;
+                forste = nyNode;
+                return true;
+            }
+            
+            while(sjekk.neste != null){
+                // når vi setter inn en node - sett satt til true og returner true
+                if(sjekk.hentUt().compareTo(sjekk.neste.hentUt()== -1)){
+                        // sjekker om dette objektet er større enn parameteret. 
+                        // hvis paramteretet er større, så går vi videre til vi finner et større objekt i lista. 
+                        // Når vi kommer til at dette er false, så må vi sette inn den nye noden
+                        // før det objektet som er større.
+                    sjekk = sjekk.neste;
                 }
                 else{
-                    // denne noden er ikke den første,  men parameteret skal settes inn før denne noden. 
-                    dennoden.neste = new Node(t);
+                // her har objektet vi ser på blitt større enn parameteret. 
+                // legge til en ny node 
+                // sjekk er noden som er akkuratt mindre enn parameteret, og sjekk.neste er akkuratt større enn parameteret
+                
+                    if(sjekk == siste){
+                        Node nyNode = new Node(t);
+                        siste.neste = nyNode;
+                        siste = nyNode; 
+                        return true;
+                    }
                     
+                    Node nyNode = new Node(t);
+                    nyNode.neste = sjekk.neste;
+                    sjekk.neste = nyNode; 
+                    return true;
                 }
-                
-        
-            }
             
-            Node nyNode = new Node(t);
-            
-          
-             
-        
-        // rett etterpå vi sjekker imot er ikke det første objektet. 
-                // gå gjennom resten av nodene og finn ut hvor det skal settes inn. 
-                for(int i = 1; i< antall; i++){
-
-                    Node sjekk = forste;
-                    if(objekt == sjekk.neste.hentUt()){
-                        // hvis objektet vi ser på ikke er den første noden. 
-                        // parameteret settes inn før den gamle noden
-                        sjekk.neste = gammelNode;
-                        sjekk = nyNode;
-                        nyNode.neste = gammelNode;
-                        return true;
-                    }
-                    // hvis ikke, sjekk neste node. 
-                    sjekk = sjekk.neste;
-                }
-                // hvis ingen av disse slår inn, returner false:
-                return false;
-                
             }
-            // parameteret har en senere id enn dette objektet, sett det inn 
-            // rett etterpå 
-
-            for(int i = 1; i< antall; i++){
-
-                    Node sjekk = forste;
-                    if(objekt == sjekk.neste.hentUt()){
-                        // hvis objektet vi ser på ikke er den første noden. 
-                        // parameteret settes inn etter den gamle noden
-                        nodeFlyttesFrem = sjekk.neste;
-                        sjekk.neste = nyNode;
-                        nyNode.neste = nodeFlyttesFrem;
-                        return true;
-                    }
-                    // hvis ikke, sjekk neste node. 
-                    sjekk = sjekk.neste;
-                }
-                // hvis ingen av disse slår inn, returner false:
-                return false;
-
-        }*/
-        return false;
     }
 
     // metode fra grenesnittet iterable
