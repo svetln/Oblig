@@ -5,8 +5,8 @@ public class LegemiddelA extends Legemiddel{
 
     private int narkotiskGrad;
 
-    public LegemiddelA(String navn, int pris, int id, double virk, int nark){
-        super(navn, pris, id, virk);
+    public LegemiddelA(String navn, int pris,double virk, int nark){
+        super(navn, pris,virk);
         narkotiskGrad = nark;
     }
     
