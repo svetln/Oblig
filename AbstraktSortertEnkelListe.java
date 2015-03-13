@@ -6,6 +6,5 @@ public interface AbstraktSortertEnkelListe<T extends Comparable<T> & Lik> extend
    
     public boolean settInn(T t);
     public T finnObjekt(String nokkel);
-    public Iterator<T> iterator();
 
 }
