@@ -2,9 +2,9 @@ import java.util.*;
 
 public class EnkelReseptliste implements Iterable<Resept>{
 
-    private Node forste;
-    private Node siste;
-    private int antall;
+    protected Node forste;
+    protected Node siste;
+    protected int antall;
 
     EnkelReseptliste(){
         forste = null;
