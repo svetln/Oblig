@@ -105,8 +105,7 @@ public class EnkelReseptliste implements Iterable<Resept>{
         // og hvis ikke, så kaster programmet en unntakk
             throw new IkkeFinnes(nr);
         }
-    
-
+        return null;
     }
 
     // Metode for å sjekke om lenkelista inneholder en gitt resept. 
