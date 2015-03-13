@@ -4,6 +4,7 @@ public class Tabell<T> implements AbstraktTabell<T extends Iterable>{
 
     private int lengde;
     private T[] beholder;
+    private int antall;
 
     Tabell(int lengde){
     // Oppretter en ny array med det antall plasser som kommer inn som
@@ -18,6 +19,7 @@ public class Tabell<T> implements AbstraktTabell<T extends Iterable>{
         if(beholder[indeks] == null){
             // denne plassen er ledig, sett inn objektet her 
             beholder[indeks] = objekt;
+            antall ++;
             return true;
         }
         return false;
@@ -28,6 +30,33 @@ public class Tabell<T> implements AbstraktTabell<T extends Iterable>{
         return beholder[indeks];
 
     }
+    
+    public int getLenge(){
+        return lengde;
+    }
+    
+    public Iterator<T> iterator(){
+        return new tabellIterator();
+    }
+    
+    public class tabellIterator implements Iterator<T>{
+        private int teller = 0;
+        T sjekk = beholder[0];
+        
+        public boolean hasNext(){
+            return(teller < antall);
+        }
+            
+        public T next(){
+        // Henter ut objektet som ligger på denne plassen
+            T hentUt = beholder[teller];
+            teller ++;
+            return hentUt;
+        }
+        public void remove(){
+        }
+    }
+    
 
 
  
