@@ -5,8 +5,8 @@ public class LegemiddelB extends Legemiddel{
 
     private int vanedannendeGrad;
 
-    public LegemiddelB(String navn, int pris, int id, double virk, int van){
-        super(navn, pris, id, virk);
+    public LegemiddelB(String navn, int pris, double virk, int van){
+        super(navn, pris, virk);
         vanedannendeGrad = van;
     }
 
