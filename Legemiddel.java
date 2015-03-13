@@ -5,14 +5,14 @@ public class Legemiddel{
     
     private String navn; 
     private int pris;
-    private int id;
     private double virkestoffMg;
+    private static int id; 
 
-    public Legemiddel(String navn, int pris, int id, double virk){
+    public Legemiddel(String navn, int pris, double virk){
         this.navn = navn;
         this.pris = pris;
-        this.id = id;
         virkestoffMg = virk;
+        id ++;
     }
 
     public int getPris(){
