@@ -63,13 +63,6 @@ public class SortertEnkelListe<T extends Lik & Comparable<T>> implements Abstrak
         else if(sjekk.hentUt().compareTo(t) == 1){
             // 1 betyr at parameterlegen er før denne legen i alfabetet
             // settes inn foran denne legen 
-            if(objekt == forste.hentUt()){
-                Node nyNode = new Node(t);
-                nyNode.neste = forste;
-                forste = nyNode;
-                return true;
-            }
-            
             while(sjekk.neste != null){
                 // når vi setter inn en node - sett satt til true og returner true
                 if(sjekk.hentUt().compareTo(sjekk.neste.hentUt()== -1)){
