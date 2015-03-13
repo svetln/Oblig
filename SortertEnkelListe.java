@@ -96,8 +96,8 @@ public class SortertEnkelListe<T extends Lik & Comparable<T>> implements Abstrak
                     sjekk.neste = nyNode; 
                     return true;
                 }
-            
             }
+        }
     }
 
     // metode fra grenesnittet iterable
