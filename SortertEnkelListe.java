@@ -3,9 +3,6 @@ import java.util.*;
 public class SortertEnkelListe<T extends Comparable<T> & Lik> implements AbstraktSortertEnkelListe<T>, Iterable<T>{
 
     // Er en enveisliste
-    // må lage en todimensjonal array med lege og legens navn på hver rad?
-    // private T[][] sortertBeholder = (T[][]) new Object[100][2];
-
     private Node forste;
     private Node siste;
     private int antall;
@@ -38,40 +35,34 @@ public class SortertEnkelListe<T extends Comparable<T> & Lik> implements Abstrak
     // returnerer false om objektet finnes i lista fra før eller man prøver å 
     // sette inn på en ugyldig plass
 
-
-    // DENNE MÅ ENDRES
-
         Iterator<T> objekter = iterator();
 
         while(objekter.hasNext()){
-            // sjekke alle objekter i lisa og sammenlikne parameteret med dette
-            // henter ut et objekt og sjekker dette med parameteret
+          
             T objekt = objekter.next();
 
             if(objekt.compareTo(t) == 0){
                 // objektene er de samme, ikke sett inn på nytt
                 return false; 
             }
-            else if(objekt.compareTo(t) == -1){
-                // objekt har senere id enn parameteret, 
-                // sett inn parameteret på denne plassen.
-                
-                // Oppretter en ny node med peker til objektet som skal settes inn
+            else if(objekt.compareTo(t) == 1){
+               // 1 betyr at parameterlegen er før denne legen i alfabetet
+               // settes inn foran denne legen 
+              
                 Node nyNode = new Node(t);
-
-                // Finner ut hvor i lista den nye noden skal settes inn
-
+                
                 if(objekt == forste.hentUt()){
-                    // parameteret skal settes inn før objektet vi sammenlikner med
-                    // objektet vi sjekker imot er det første objektet
-                    // ny node må settes inn helt først. 
-                    Node gammelNode = forste;
+                    nyNode.neste = forste;
                     forste = nyNode;
-                    nyNode.neste = gammelNode;
-                    return true;
                 }
                 
-                // parameteret skal settes inn før objektet vi sammenlikner med
+        
+            }
+            
+            Node nyNode = new Node(t);
+            
+          
+             
         
         // rett etterpå vi sjekker imot er ikke det første objektet. 
                 // gå gjennom resten av nodene og finn ut hvor det skal settes inn. 
@@ -121,6 +112,7 @@ public class SortertEnkelListe<T extends Comparable<T> & Lik> implements Abstrak
     public Iterator<T> iterator(){
         return new Objektiterator();
     }
+   
 
     // Vår objektiterator, implementerer grensesnittet Iterator. 
     // indre klasse Objektiterator 
