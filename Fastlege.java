@@ -5,8 +5,8 @@ class Fastlege extends Lege implements AvtaleKommunen{
 
     private int avtalenummer;
 
-    public Fastlege(String navn, String fodselsnr, String postnummer, String adresse, int id, int avtalenummer){
-        super(navn, fodselsnr, postnummer, adresse, id);
+    public Fastlege(String navn, int avtalenummer){
+        super(navn);
         this.avtalenummer = avtalenummer; 
     }
 
