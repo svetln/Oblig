@@ -65,7 +65,7 @@ public class SortertEnkelListe<T extends Lik & Comparable<T>> implements Abstrak
             // settes inn foran denne legen 
             while(sjekk.neste != null){
                 // når vi setter inn en node - sett satt til true og returner true
-                if(sjekk.hentUt().compareTo(sjekk.neste.hentUt())== -1)){
+                if(sjekk.hentUt().compareTo(sjekk.neste.hentUt())== -1){
                         // sjekker om dette objektet er større enn parameteret. 
                         // hvis paramteretet er større, så går vi videre til vi finner et større objekt i lista. 
                         // Når vi kommer til at dette er false, så må vi sette inn den nye noden
