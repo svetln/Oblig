@@ -13,7 +13,7 @@ public class EnkelReseptliste implements Iterable<Resept>{
     
     // Klasse som representerer noder i en lenkeliste. 
     // Har peker til neste objekt og til innholdet i noden (en resept)
-    private class Node{
+    protected class Node{
         Resept resept;
         Node neste;
 
