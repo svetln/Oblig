@@ -91,6 +91,7 @@ public class SortertEnkelListe<T extends Lik & Comparable<T>> implements Abstrak
                 }
             }
         }
+        return false;
     }
 
     // metode fra grenesnittet iterable
