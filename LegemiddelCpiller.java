@@ -5,11 +5,12 @@ class LegemiddelCpiller extends LegemiddelC implements Piller{
     // men implementerer interfacet Piller. 
     
     private int antPiller;
-    private double mengdeVirkestoff = getVirkestoff();
+    private double mengdeVirkestoff;
     private double virkestoffPerPille = mengdeVirkestoff/antPiller;
 
-    public LegemiddelCpiller(String n, int p, int i, double virk, int ant){
-        super(n, p, i, virk);
+    public LegemiddelCpiller(String navn, int pris, double virk, int ant){
+        super(navn, pris, virk);
+        mengdeVirkestoff = virk;
         antPiller = ant;
     }
 
