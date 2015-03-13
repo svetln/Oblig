@@ -19,7 +19,7 @@ class LegemiddelAmikstur extends LegemiddelA implements Mikstur{
     }
 
     public double getVirkestoffKubikkcm(){
-        return virkestoffKubikkcm();
+        return virkestoffKubikkcm;
     }
 
 }
