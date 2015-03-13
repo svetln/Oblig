@@ -1,8 +1,5 @@
 import java.util.*;
-class Lege implements Lik, Comparable<Lege>, Iterable<Lege>{
-
-    // Comparable, , Iterable
-    // En lege er en person, og extender derfor Person. 
+class Lege implements Lik, Comparable<Lege>, Iterable{
     // Lege implementerer interfacet Lik som sjekker om et legenavn som 
     // kommer inn som paramter i metoden samme(String navn) er 
     // likt navnet på legeobjektet metoden finnes i. 
