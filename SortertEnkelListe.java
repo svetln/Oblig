@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class SortertEnkelListe<T> implements AbstraktSortertEnkelListe<T extends Lik, Comparable<T>>, Iterable<T>{
+public class SortertEnkelListe<T> implements AbstraktSortertEnkelListe<T extends Lik & Comparable<T>>, Iterable<T>{
 
     // Er en enveisliste
     private Node forste;
@@ -34,8 +34,14 @@ public class SortertEnkelListe<T> implements AbstraktSortertEnkelListe<T extends
     // setter inn et objekt i lista i sortert rekkefølge
     // returnerer false om objektet finnes i lista fra før eller man prøver å 
     // sette inn på en ugyldig plass
-
-       /* Iterator<T> objekter = iterator();
+    
+        if(tom()){
+        // hvis lista er tom, sett inn nytt objekt først. 
+            forste = new Node(t);
+            siste = forste;
+            return true;
+        }
+        Iterator<T> objekter = iterator();
 
         while(objekter.hasNext()){
           
@@ -54,6 +60,12 @@ public class SortertEnkelListe<T> implements AbstraktSortertEnkelListe<T extends
                 if(objekt == forste.hentUt()){
                     nyNode.neste = forste;
                     forste = nyNode;
+                    return true;
+                }
+                else{
+                    // denne noden er ikke den første,  men parameteret skal settes inn før denne noden. 
+                    dennoden.neste = new Node(t);
+                    
                 }
                 
         
@@ -104,7 +116,7 @@ public class SortertEnkelListe<T> implements AbstraktSortertEnkelListe<T extends
                 // hvis ingen av disse slår inn, returner false:
                 return false;
 
-        }*/
+        }
         return false;
     }
 
@@ -146,6 +158,10 @@ public class SortertEnkelListe<T> implements AbstraktSortertEnkelListe<T extends
     public T finnObjekt(String nokkel){
     // returnerer legen med navnet som kommer inn som parameter
         return null;
+    }
+    
+    public boolean tom(){
+        return(forste ==null);
     }
 
 
