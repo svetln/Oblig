@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Tabell<T> implements AbstraktTabell<T extends Iterable>{
+public class Tabell<T extends Iterable> implements AbstraktTabell<T>{
 
     private int lengde;
     private T[] beholder;
