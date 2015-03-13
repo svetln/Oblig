@@ -1,4 +1,4 @@
-class Lege extends Person implements Comparable, Lik, Iterable{
+class Lege implements Comparable, Lik, Iterable{
 
     // En lege er en person, og extender derfor Person. 
     // Lege implementerer interfacet Lik som sjekker om et legenavn som 
@@ -6,30 +6,30 @@ class Lege extends Person implements Comparable, Lik, Iterable{
     // likt navnet på legeobjektet metoden finnes i. 
     // Implementerer også grensesnittet Comparable for å kunne
     // sammenlikne to leger i SortertEnkelListe
+    
+    private String navn;
 
-    public Lege(String navn, String fodselsnr, String postnummer, String adresse){
-        super(navn, fodselsnr, postnummer, adresse);
+    public Lege(String navn){
+        this.navn = navn;
+    }
+    
+    public String getNavn(){
+        return navn;
     }
 
     public boolean samme(String navn){
         // sammenlikner legens navn med navnet som kommer inn som parameter
-        return(getNavn()==navn);
+        return(this.navn==navn);
     }
     
     public int compareTo(Lege x){
-        return getId().compareTo(x.getId());
-       /*if(x.getId() == this.getId()){
-            // de to objektene er like
+        if(navn.compareTo(x.getNavn())==0){
             return 0;
-       }
-       else if(x.getId() < this.getId()){
-            // parameteret har en tidlgiere id(mindre enn iden til dette objektet),
-            // dette objektet er derfor senere enn det nye objektet i lista
+        }
+        else if(navn.compareTo(x.getNavn())<0){
+            // da er denne legen tidligere i alfabetet enn parameteret
             return -1;
-       }
-       // Dette objektet har en tidligere id enn parameteret, 
-       // parametere er etter  dette objektet i lista. 
-       return 1;
-        */
+        }
+        return 1;
     }
 }
