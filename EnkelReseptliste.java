@@ -99,8 +99,7 @@ public class EnkelReseptliste implements Iterable<Resept>{
             }
             sjekk = sjekk.neste;
         }
-        return null;
-
+        
         if (finnes == false){
         // her sjekker vi om det finnes en resept, 
         // og hvis ikke, så kaster programmet en unntakk
