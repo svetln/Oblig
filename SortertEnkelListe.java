@@ -133,7 +133,7 @@ public class SortertEnkelListe<T extends Lik & Comparable<T>> implements Abstrak
     // returnerer legen med navnet som kommer inn som parameter
         Node sjekk = forste;
         while(sjekk != null){
-            if(sjekk.hentUt()samme(nokkel){
+            if(sjekk.hentUt().samme(nokkel)){
                 return sjekk.hentUt();
             }
             sjekk = sjekk.neste;
