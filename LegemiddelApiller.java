@@ -8,8 +8,8 @@ class LegemiddelApiller extends LegemiddelA implements Piller{
     private double mengdeVirkestoff = getVirkestoff();
     private double virkestoffPerPille = mengdeVirkestoff/antPiller;
 
-    public LegemiddelApiller(String n, int p, int i, double virk, int nark, int ant){
-        super(n, p, i, virk, nark);
+    public LegemiddelApiller(String navn, int pris, double virk, int nark, int ant){
+        super(navn, pris, virk, nark);
         antPiller = ant;
     }
 
