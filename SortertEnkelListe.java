@@ -163,6 +163,11 @@ public class SortertEnkelListe<T extends Lik & Comparable<T>> implements Abstrak
     public boolean tom(){
         return(forste ==null);
     }
+    
+    
+    public int getAntall(){
+        return antall;
+    }
 
 
 }
