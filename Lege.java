@@ -1,5 +1,5 @@
 import java.util.*;
-class Lege implements Lik, Comparable, Iterable{
+class Lege implements Lik, Comparable<T>, Iterable<T>{
 
     // Comparable, , Iterable
     // En lege er en person, og extender derfor Person. 
