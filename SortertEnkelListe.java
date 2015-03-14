@@ -34,64 +34,59 @@ public class SortertEnkelListe<T extends Lik & Comparable<T>> implements Abstrak
     // setter inn et objekt i lista i sortert rekkefølge
     // returnerer false om objektet finnes i lista fra før eller man prøver å 
     // sette inn på en ugyldig plass
-    
+              
+        if(inneholder(t)){
+            // lista inneholder allerede denne legen, ikke sett inn på nytt
+            return false; 
+        }
+
         if(tom()){
-        // hvis lista er tom, sett inn nytt objekt først. 
+            // hvis lista er tom, sett inn nytt objekt først. 
             forste = new Node(t);
             siste = forste;
             return true;
         }
-        else if(getAntall()==1){
-            if(forste.hentUt().compareTo(t) == 1){
-                // parameteret er før første node i lista, sett inn dette først 
-                Node nyNode = new Node(t);
+
+        // lista er ikke tom og inneholder ikke elementet vi prøver  å sette inn
+        // lagrer noden vi jobber med og den forrige noden vi jobbet med i to variabler
+        // for å kunne sette inn en ny node imellom disse. 
+        Node sjekk = forste; 
+        Node forrigeSjekk = null; 
+        Node nyNode = new Node(t);
+
+        while(sjekk != null){
+        // while-løkke som stopper på det siste elementet. 
+        // sammenlikner objektpekeren i noden med parameteret 
+            if(sjekk.hentUt().compareTo(t)== -1){
+                // -1 betyr at denne legen er midre enn parameteret (dvs tidligere i alfabetet). 
+                // hvis paramteretet er større, så går vi videre til vi finner et større objekt i lista. 
+                // Når vi kommer til at dette er false, så må vi sette inn den nye noden
+                // før det objektet som er større enn parameteret.
+                forrigeSjekk = sjekk;
+                sjekk = sjekk.neste;
+            }
+            else{ 
+                // compareTo() gir 1 som svar: parameteret er nå mindre enn denne legen.
+                // vi må sette inn parameteret før denne legen.
+                // hvis denne legen er den første i lista, legg til ny lege foran denne. 
+                if(sjekk == forste){
                     nyNode.neste = forste;
                     forste = nyNode;
                     return true;
-            }
-            Node nyNode = new Node(t);
-            siste.neste = nyNode;
-            siste = nyNode; 
-            return true;
-        }
-        // hvis lista inneholder mer enn ett element. 
-        Node sjekk = forste; 
-        if(sjekk.hentUt().compareTo(t) == 0){
-            // objektene er de samme, ikke sett inn på nytt
-            return false; 
-        }
-        else if(sjekk.hentUt().compareTo(t) == 1){
-            // 1 betyr at parameterlegen er før denne legen i alfabetet
-            // settes inn foran denne legen 
-            while(sjekk.neste != null){
-                // når vi setter inn en node - sett satt til true og returner true
-                if(sjekk.hentUt().compareTo(sjekk.neste.hentUt())== -1){
-                        // sjekker om dette objektet er større enn parameteret. 
-                        // hvis paramteretet er større, så går vi videre til vi finner et større objekt i lista. 
-                        // Når vi kommer til at dette er false, så må vi sette inn den nye noden
-                        // før det objektet som er større.
-                    sjekk = sjekk.neste;
                 }
-                else{
-                // her har objektet vi ser på blitt større enn parameteret. 
-                // legge til en ny node 
-                // sjekk er noden som er akkuratt mindre enn parameteret, og sjekk.neste er akkuratt større enn parameteret
-                
-                    if(sjekk == siste){
-                        Node nyNode = new Node(t);
-                        siste.neste = nyNode;
-                        siste = nyNode; 
-                        return true;
-                    }
-                    
-                    Node nyNode = new Node(t);
-                    nyNode.neste = sjekk.neste;
-                    sjekk.neste = nyNode; 
-                    return true;
-                }
+                // denne legen er ikke den første i lista, men parameteret er mindre
+                // legg til den nye legen foran denne legen. 
+                Node flyttesFrem = sjekk;
+                forrigeSjekk.neste = nyNode;
+                nyNode.neste = flyttesFrem;
+                return true;
             }
         }
-        return false;
+        // noden sjekk er den siste noden, vi har fortsatt ikke funnet en lege som er større enn parameteret.
+        // legg til parameteret sist i lista. 
+        siste.neste = nyNode;
+        siste = nyNode; 
+        return true;
     }
 
     // metode fra grenesnittet iterable
@@ -149,6 +144,16 @@ public class SortertEnkelListe<T extends Lik & Comparable<T>> implements Abstrak
     public int getAntall(){
         return antall;
     }
-
+    
+    public boolean inneholder(T objekt){
+        Node sjekk = forste; 
+        while(sjekk != null){
+           if(sjekk.hentUt() == objekt){
+                return true;
+           }
+           sjekk = sjekk.neste;
+        }
+        return false; 
+    }
 
 }

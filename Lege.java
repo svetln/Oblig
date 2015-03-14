@@ -26,9 +26,10 @@ class Lege implements Lik, Comparable<Lege>{
             return 0;
         }
         else if(navn.compareTo(x.getNavn())<0){
-            // da er denne legen tidligere i alfabetet enn parameteret
+            // returnerer -1 hvis legen vi sjekker er før parameteret i alfabetet. 
             return -1;
         }
+        // returnerer 1 hvis legen vi sjekker er etter parameteret i alfabetet. 
         return 1;
     }
 }
