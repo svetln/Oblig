@@ -13,6 +13,7 @@ class YngsteForstReseptliste extends EnkelReseptliste{
             // Hvis lista er tom, sett inn den nye noden på første plass
             forste = new Node(r);
             siste = forste;
+            antall ++;
             return true;
         }
         else{
@@ -20,6 +21,7 @@ class YngsteForstReseptliste extends EnkelReseptliste{
             Node nyNode = new Node(r);
             nyNode.neste = forste;
             forste = nyNode;
+            antall ++;
             return true;
         }
     }

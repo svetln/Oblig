@@ -130,4 +130,12 @@ public class EnkelReseptliste implements Iterable<Resept>{
     public boolean tom(){
         return(forste == null);
     }
+
+    public Resept getForste(){
+        return forste.hentUt();
+    }
+
+    public Resept getSiste(){
+        return siste.hentUt();
+    }
 }
